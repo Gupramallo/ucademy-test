@@ -5,6 +5,7 @@ import {
   Put,
   Body,
   Param,
+  Query,
   NotFoundException,
 } from '@nestjs/common'
 import { UserService } from '../services/user.service'
@@ -20,8 +21,13 @@ export class UserController {
   }
 
   @Get()
-  async findAll() {
-    return this.userService.findAll()
+  async findAll(
+    @Query('page') page: string = '1',
+    @Query('limit') limit: string = '20'
+  ) {
+    const pageNum = parseInt(page, 10)
+    const limitNum = parseInt(limit, 10)
+    return this.userService.findAllPaginated(pageNum, limitNum)
   }
 
   @Get(':id')
