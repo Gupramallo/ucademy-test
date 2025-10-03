@@ -39,3 +39,7 @@ testem.log
 Thumbs.db
 
 .nx/cache
+
+# MongoDB Database
+apps/backend/database/
+*.log
