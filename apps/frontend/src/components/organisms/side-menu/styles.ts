@@ -1,6 +1,7 @@
 import { styled } from '@mui/material/styles'
 
 export const MainContainer = styled('div')`
+  position: fixed;
   width: ${({ theme }) => theme.spacing(27)};
   min-height: 100vh;
   background-color: ${({ theme }) => theme.palette.common.white};
