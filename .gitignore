@@ -43,3 +43,8 @@ Thumbs.db
 # MongoDB Database
 apps/backend/database/
 *.log
+
+# Environment variables
+.env
+.env.local
+.env.*.local
