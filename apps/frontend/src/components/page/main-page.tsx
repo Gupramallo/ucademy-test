@@ -1,10 +1,11 @@
 import React, { useState } from 'react'
 import Layout from '../templates/layout'
-import { Pagination, Stack, Typography } from '@mui/material'
+import { Typography } from '@mui/material'
 import { useQuery } from '@tanstack/react-query'
 import { getUsersQuery } from '@/shared/queries/get-users-queries'
 import UsersTable from '../organisms/users-table'
 import { Container } from './styles'
+import Pagination from '@/components/molecules/pagination'
 
 const MainPage: React.FC = () => {
   const [page, setPage] = useState(1)
@@ -21,17 +22,11 @@ const MainPage: React.FC = () => {
         </div>
         <UsersTable users={data?.users ?? []} isLoading={isLoading} />
         {data?.pagination && (
-          <Stack direction="row" justifyContent="center" sx={{ mt: 3 }}>
-            <Pagination
-              count={data.pagination.totalPages}
-              page={page}
-              onChange={handlePageChange}
-              color="primary"
-              size="large"
-              showFirstButton
-              showLastButton
-            />
-          </Stack>
+          <Pagination
+            page={page}
+            onChange={handlePageChange}
+            totalPages={data.pagination.totalPages}
+          />
         )}
       </Container>
     </Layout>

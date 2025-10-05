@@ -22,5 +22,6 @@ export const getUsersQuery = ({
 
     return data
   },
+  placeholderData: (previousData: UsersQueryData | undefined) => previousData,
   staleTime: 5 * 60 * 1000,
 })

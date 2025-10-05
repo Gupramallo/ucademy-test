@@ -1,4 +1,20 @@
-import { styled, TableCell, TableRow } from '@mui/material'
+import {
+  styled,
+  TableCell,
+  TableRow,
+  TableContainer as MuiTableContainer,
+  Paper,
+} from '@mui/material'
+
+export const Container = styled(Paper)`
+  display: flex;
+  min-height: 75vh;
+`
+
+export const TableContainer = styled(MuiTableContainer)`
+  max-height: 75vh;
+  overflow-y: scroll;
+`
 
 export const EmptyCell = styled(TableCell)`
   width: ${({ theme }) => theme.spacing(11.25)};
@@ -23,4 +39,11 @@ export const MobileCell = styled(TableCell)`
 
 export const TableHeaderRow = styled(TableRow)`
   background-color: ${({ theme }) => theme.palette.grey[50]};
+`
+
+export const LoadingContainer = styled('div')`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
 `
