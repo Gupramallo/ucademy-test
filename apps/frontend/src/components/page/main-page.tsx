@@ -7,7 +7,7 @@ import { Container } from './styles'
 import Pagination from '@/components/molecules/pagination'
 import PageHeader from '@/components/molecules/page-header'
 import { Modal } from '@mui/material'
-import useUserTable from '@/hooks/use-user-table'
+import { useModalProvider } from '@/shared/providers/modal-provider/context'
 
 const MainPage: React.FC = () => {
   const [page, setPage] = useState(1)
@@ -17,7 +17,7 @@ const MainPage: React.FC = () => {
     openProfileModal,
     closeModal,
     selectedUser,
-  } = useUserTable()
+  } = useModalProvider()
   const { data, isLoading } = useQuery(getUsersQuery({ page }))
 
   const handlePageChange = (event: React.ChangeEvent<unknown>, page: number) =>
