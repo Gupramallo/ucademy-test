@@ -18,6 +18,7 @@ import {
   Container,
 } from './styles'
 import type { UserTableProps } from './types'
+import StatusChip from '@/components/atoms/status-chip'
 
 const UsersTable: React.FC<UserTableProps> = ({
   users,
@@ -48,7 +49,9 @@ const UsersTable: React.FC<UserTableProps> = ({
                 hover
                 key={user._id}
               >
-                <TableCell />
+                <TableCell>
+                  <StatusChip isActive={user.isActive} />
+                </TableCell>
                 <TableCell>{`${user.name} ${user.lastName}`}</TableCell>
                 <TableCell>{user.name}</TableCell>
                 <TableCell>{user.email}</TableCell>
