@@ -1,14 +1,23 @@
 import React, { useState } from 'react'
 import Layout from '../templates/layout'
-import { Typography } from '@mui/material'
 import { useQuery } from '@tanstack/react-query'
 import { getUsersQuery } from '@/shared/queries/get-users-queries'
 import UsersTable from '../organisms/users-table'
 import { Container } from './styles'
 import Pagination from '@/components/molecules/pagination'
+import PageHeader from '@/components/molecules/page-header'
+import { Modal } from '@mui/material'
+import useUserTable from '@/hooks/use-user-table'
 
 const MainPage: React.FC = () => {
   const [page, setPage] = useState(1)
+  const {
+    isOpen,
+    Modal: ModalComponent,
+    openProfileModal,
+    closeModal,
+    selectedUser,
+  } = useUserTable()
   const { data, isLoading } = useQuery(getUsersQuery({ page }))
 
   const handlePageChange = (event: React.ChangeEvent<unknown>, page: number) =>
@@ -17,10 +26,12 @@ const MainPage: React.FC = () => {
   return (
     <Layout>
       <Container>
-        <div>
-          <Typography variant="h4">Alumnos</Typography>
-        </div>
-        <UsersTable users={data?.users ?? []} isLoading={isLoading} />
+        <PageHeader />
+        <UsersTable
+          openProfileModal={openProfileModal}
+          users={data?.users ?? []}
+          isLoading={isLoading}
+        />
         {data?.pagination && (
           <Pagination
             page={page}
@@ -29,6 +40,9 @@ const MainPage: React.FC = () => {
           />
         )}
       </Container>
+      <Modal open={isOpen} onClose={closeModal}>
+        <ModalComponent user={selectedUser} />
+      </Modal>
     </Layout>
   )
 }
