@@ -41,7 +41,9 @@ const MainPage: React.FC = () => {
         )}
       </Container>
       <Modal open={isOpen} onClose={closeModal}>
-        <ModalComponent user={selectedUser} />
+        <div>
+          <ModalComponent user={selectedUser} />
+        </div>
       </Modal>
     </Layout>
   )
