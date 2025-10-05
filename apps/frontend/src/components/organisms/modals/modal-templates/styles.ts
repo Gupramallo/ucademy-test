@@ -30,4 +30,5 @@ export const ContentContainer = styled('div')`
 export const BottomContainer = styled('div')`
   display: flex;
   justify-content: space-between;
+  height: ${({ theme }) => theme.spacing(4.5)};
 `

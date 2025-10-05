@@ -1,4 +1,5 @@
-import { ProfileModal } from '@/components/organisms/modals'
+import { EditProfileModal, ProfileModal } from '@/components/organisms/modals'
+import CreateProfileModal from '@/components/organisms/modals/create-profile-modal'
 
 export const MODAL_TYPES = {
   profile: 'profile',
@@ -23,7 +24,7 @@ export const MODAL_ACTIONS = {
 
 export const MODALS = {
   [MODAL_TYPES.profile]: ProfileModal,
-  [MODAL_TYPES.create]: ProfileModal,
-  [MODAL_TYPES.edit]: ProfileModal,
+  [MODAL_TYPES.create]: CreateProfileModal,
+  [MODAL_TYPES.edit]: EditProfileModal,
   [MODAL_TYPES.warning]: ProfileModal,
 }

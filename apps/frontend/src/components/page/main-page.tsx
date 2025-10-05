@@ -17,6 +17,7 @@ const MainPage: React.FC = () => {
     openProfileModal,
     closeModal,
     selectedUser,
+    openCreateModal,
   } = useModalProvider()
   const { data, isLoading } = useQuery(getUsersQuery({ page }))
 
@@ -26,7 +27,7 @@ const MainPage: React.FC = () => {
   return (
     <Layout>
       <Container>
-        <PageHeader />
+        <PageHeader onClick={openCreateModal} />
         <UsersTable
           openProfileModal={openProfileModal}
           users={data?.users ?? []}

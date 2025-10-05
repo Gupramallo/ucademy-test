@@ -16,7 +16,7 @@ export const modalReducer = (
     case MODAL_ACTIONS.openEdit:
       return {
         isOpen: true,
-        type: MODAL_TYPES.profile,
+        type: MODAL_TYPES.edit,
         selectedUser: action.user,
       }
 

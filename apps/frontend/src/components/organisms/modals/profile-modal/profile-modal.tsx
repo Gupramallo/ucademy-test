@@ -10,14 +10,20 @@ import AccountCircleIcon from '@mui/icons-material/AccountCircle'
 import PhoneAndroidIcon from '@mui/icons-material/PhoneAndroid'
 import EmailIcon from '@mui/icons-material/Email'
 import { ContentContainer, InfoContainer } from './styles'
+import { User } from '@/shared/types'
 
 const ProfileModal: React.FC<ModalProps> = ({ user }) => {
-  const { closeModal } = useModalProvider()
+  const { closeModal, openEditModal } = useModalProvider()
 
   return (
     <LargeModalTemplate
       onClose={closeModal}
-      topButtons={<MainButton label="Editar estudiante" onClick={() => {}} />}
+      topButtons={
+        <MainButton
+          label="Editar estudiante"
+          onClick={() => openEditModal(user as User)}
+        />
+      }
       bottomContent={
         <FormGroup>
           <FormControlLabel
