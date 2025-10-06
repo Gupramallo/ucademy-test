@@ -1,8 +1,8 @@
-import React, { PropsWithChildren } from 'react'
+import type { PropsWithChildren, ReactNode } from 'react'
 
 export type LargeModalTemplateProps = PropsWithChildren & {
   title?: string
-  topButtons?: React.ReactNode
+  topButtons?: ReactNode
   onClose: () => void
   bottomContent?: React.ReactNode
 }

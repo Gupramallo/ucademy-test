@@ -1,3 +1,3 @@
-import SecondaryButton from './seconddary-button'
+import SecondaryButton from './secondary-button'
 
 export default SecondaryButton

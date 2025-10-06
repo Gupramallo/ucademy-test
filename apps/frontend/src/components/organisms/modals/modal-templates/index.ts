@@ -1,1 +1,2 @@
-export { default as LargeModalTemplate } from './large-modal-template'
+export * from './large-modal-template'
+export * from './small-modal-template'
