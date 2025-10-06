@@ -1,5 +1,6 @@
 import { EditProfileModal, ProfileModal } from '@/components/organisms/modals'
 import CreateProfileModal from '@/components/organisms/modals/create-profile-modal'
+import WarningModal from '@/components/organisms/modals/warning-modal'
 
 export const MODAL_TYPES = {
   profile: 'profile',
@@ -19,6 +20,7 @@ export const MODAL_ACTIONS = {
   openEdit: 'OPEN_EDIT_MODAL',
   openCreate: 'OPEN_CREATE_MODAL',
   openWarning: 'OPEN_WARNING_MODAL',
+  modifyUser: 'MODIFY_USER',
   closeModal: 'CLOSE_MODAL',
 } as const
 
@@ -26,5 +28,5 @@ export const MODALS = {
   [MODAL_TYPES.profile]: ProfileModal,
   [MODAL_TYPES.create]: CreateProfileModal,
   [MODAL_TYPES.edit]: EditProfileModal,
-  [MODAL_TYPES.warning]: ProfileModal,
+  [MODAL_TYPES.warning]: WarningModal,
 }
