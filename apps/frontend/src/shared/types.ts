@@ -1,3 +1,5 @@
+import type { QueryClient } from '@tanstack/react-query'
+
 export type User = {
   _id: string
   name?: string
@@ -19,4 +21,8 @@ export type Pagination = {
 export type UsersQueryData = {
   users: User[]
   pagination: Pagination
+}
+
+export type PropsWithQueryClient = {
+  queryClient: QueryClient
 }
