@@ -8,13 +8,14 @@ import { BottomContainer, Container, ContentContainer } from './styles'
 const SmallModalTemplate: React.FC<SmallModalTemplateProps> = ({
   children,
   onClose,
+  onClick,
   mainButtonLabel = 'Desactivar',
 }) => (
   <Container>
     <ContentContainer>{children}</ContentContainer>
     <BottomContainer>
       <SecondaryButton label="Cancelar" onClick={onClose} />
-      <MainButton label={mainButtonLabel} color="error" onClick={onClose} />
+      <MainButton label={mainButtonLabel} color="error" onClick={onClick} />
     </BottomContainer>
   </Container>
 )

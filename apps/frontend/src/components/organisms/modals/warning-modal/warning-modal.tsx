@@ -1,7 +1,6 @@
 import { Typography } from '@mui/material'
 import React from 'react'
 import { SmallModalTemplate } from '../modal-templates'
-import { useModalProvider } from '@/shared/providers/modal-provider/context'
 import type { User } from '@/shared/types'
 import {
   ContentContainer,
@@ -9,14 +8,15 @@ import {
   TextContainer,
   WarningIcon,
 } from './styles'
+import useWarningUserModal from '@/hooks/use-warning-user-modal'
 
 const WarningModal: React.FC = () => {
-  const { selectedUser, openProfileModal } = useModalProvider()
+  const { selectedUser, openProfileModal, onClick } = useWarningUserModal()
 
   return (
     <SmallModalTemplate
       onClose={() => openProfileModal(selectedUser as User)}
-      onClick={() => {}}
+      onClick={onClick}
     >
       <ContentContainer>
         <IconContainer>
