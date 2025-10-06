@@ -2,6 +2,7 @@ import React from 'react'
 import { Container } from './styles'
 import UserInputField from '@/components/molecules/user-input-field'
 import type { UserProfileFormProps } from './types'
+import { EMAIL_REGEX } from './constants'
 
 const UserProfileForm: React.FC<UserProfileFormProps> = ({
   register,
@@ -21,14 +22,14 @@ const UserProfileForm: React.FC<UserProfileFormProps> = ({
       error={!!errors.lastName}
     />
     <UserInputField
-      title="Correo Electrónico"
+      title="Email"
       type="email"
       register={register}
       rules={{
-        required: 'El correo electrónico es obligatorio',
+        required: 'El email es obligatorio',
         pattern: {
-          value: /^[^\s@]+@[^\s@]+\.[^\s@]+$/,
-          message: 'Por favor ingresa un correo electrónico válido',
+          value: EMAIL_REGEX,
+          message: 'Por favor ingresa un email válido',
         },
       }}
       fieldKey="email"

@@ -1,18 +1,27 @@
 import React from 'react'
 import { ModalProps } from '../types'
 import { LargeModalTemplate } from '../modal-templates'
-import { useModalProvider } from '@/shared/providers/modal-provider/context'
+
 import MainButton from '@/components/atoms/buttons/main-button'
+import useCreateUserForm from '@/hooks/use-create-user-form'
+import UserProfileForm from '../../user-profile-form'
 
 const CreateProfileModal: React.FC<ModalProps> = () => {
-  const { closeModal } = useModalProvider()
+  const { closeModal, handleSubmit, onSubmit, register, errors, isPending } =
+    useCreateUserForm()
 
   return (
     <LargeModalTemplate
       onClose={closeModal}
-      topButtons={<MainButton label="Guardar" onClick={() => {}} />}
+      topButtons={
+        <MainButton
+          label="Guardar"
+          onClick={handleSubmit(onSubmit)}
+          disabled={isPending}
+        />
+      }
     >
-      <>Test Create</>
+      <UserProfileForm register={register} errors={errors} />
     </LargeModalTemplate>
   )
 }

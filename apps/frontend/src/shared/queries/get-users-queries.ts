@@ -1,5 +1,6 @@
 import { API_BASE_URL } from '@/config/api'
 import type { UsersQueryData } from '../types'
+import { USER_KEY } from '../constants'
 
 export const getUsersQuery = ({
   page = 1,
@@ -8,7 +9,7 @@ export const getUsersQuery = ({
   page?: number
   limit?: number
 }) => ({
-  queryKey: ['users', page, limit],
+  queryKey: [USER_KEY, page, limit],
   queryFn: async (): Promise<UsersQueryData> => {
     const response = await fetch(
       `${API_BASE_URL}/users?page=${page}&limit=${limit}`

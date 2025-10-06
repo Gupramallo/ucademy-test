@@ -1,5 +1,5 @@
 import type { UserFormData } from '@/components/organisms/modals/types'
-import { getCreateUserMutation } from '@/shared/mutations/get-edit-user-mutation'
+import { getEditUserMutation } from '@/shared/mutations/get-edit-user-mutation'
 import { useModalProvider } from '@/shared/providers/modal-provider/context'
 import type { User } from '@/shared/types'
 import { useQueryClient, useMutation } from '@tanstack/react-query'
@@ -8,11 +8,12 @@ import { useForm } from 'react-hook-form'
 export const useEditUserForm = () => {
   const { closeModal, openProfileModal, selectedUser } = useModalProvider()
   const queryClient = useQueryClient()
-  const updateUser = useMutation(getCreateUserMutation({ queryClient }))
+  const updateUser = useMutation(getEditUserMutation({ queryClient }))
   const isPending = updateUser.isPending
   const {
     register,
     handleSubmit,
+    setError,
     formState: { errors },
   } = useForm<UserFormData>({
     defaultValues: selectedUser ?? {
@@ -35,6 +36,15 @@ export const useEditUserForm = () => {
 
       openProfileModal({ ...selectedUser, ...data })
     } catch (error) {
+      const errorMessage =
+        error instanceof Error ? error.message : 'Error desconocido'
+
+      if (errorMessage.includes('email')) {
+        setError('email', {
+          message: errorMessage,
+        })
+      }
+
       console.error('Error al actualizar usuario:', error)
     }
   }
@@ -45,6 +55,7 @@ export const useEditUserForm = () => {
     closeModal,
     register,
     handleSubmit,
+    setError,
     errors,
     onSubmit,
     handleCancel,

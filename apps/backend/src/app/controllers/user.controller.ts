@@ -7,6 +7,7 @@ import {
   Param,
   Query,
   NotFoundException,
+  ConflictException,
 } from '@nestjs/common'
 import { UserService } from '../services/user.service'
 import { User } from '../schemas/user.schema'
@@ -17,7 +18,18 @@ export class UserController {
 
   @Post()
   async create(@Body() createUserDto: Partial<User>) {
-    return this.userService.create(createUserDto)
+    if (createUserDto.email) {
+      const existingUser = await this.userService.findByEmail(
+        createUserDto.email
+      )
+      if (existingUser) {
+        throw new ConflictException(
+          `email ${createUserDto.email} is already in use`
+        )
+      }
+    }
+
+    return await this.userService.create(createUserDto)
   }
 
   @Get()
@@ -43,12 +55,24 @@ export class UserController {
 
   @Put(':id')
   async update(@Param('id') id: string, @Body() updateUserDto: Partial<User>) {
-    const user = await this.userService.update(id, updateUserDto)
+    const currentUser = await this.userService.findOne(id)
 
-    if (!user) {
+    if (!currentUser) {
       throw new NotFoundException(`User with id ${id} not found`)
     }
 
-    return user
+    if (updateUserDto.email && updateUserDto.email !== currentUser.email) {
+      const existingUser = await this.userService.findByEmail(
+        updateUserDto.email
+      )
+
+      if (existingUser) {
+        throw new ConflictException(
+          `email ${existingUser.email} is already in use`
+        )
+      }
+    }
+
+    return await this.userService.update(id, updateUserDto)
   }
 }
