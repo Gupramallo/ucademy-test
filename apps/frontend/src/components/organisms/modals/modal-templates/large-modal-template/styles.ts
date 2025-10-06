@@ -1,4 +1,4 @@
-import { Paper, styled } from '@mui/material'
+import { css, Paper, styled, Typography } from '@mui/material'
 
 export const Container = styled(Paper)`
   width: ${({ theme }) => theme.spacing(62.5)};
@@ -21,6 +21,7 @@ export const ButtonsContainer = styled('div')`
 export const HeaderContainer = styled('div')`
   display: flex;
   justify-content: space-between;
+  align-items: center;
 `
 
 export const ContentContainer = styled('div')`
@@ -32,4 +33,10 @@ export const BottomContainer = styled('div')`
   display: flex;
   justify-content: space-between;
   height: ${({ theme }) => theme.spacing(4.5)};
+`
+
+export const Title = styled(Typography)`
+  ${({ theme }) => css`
+    border-bottom: ${theme.spacing(0.25)} solid ${theme.palette.primary.main};
+  `}
 `

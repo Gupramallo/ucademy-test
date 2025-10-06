@@ -1,5 +1,4 @@
 import React from 'react'
-import { Typography } from '@mui/material'
 import type { LargeModalTemplateProps } from './types'
 import {
   BottomContainer,
@@ -7,6 +6,7 @@ import {
   Container,
   ContentContainer,
   HeaderContainer,
+  Title,
 } from './styles'
 import SecondaryButton from '@/components/atoms/buttons/secondary-button'
 
@@ -19,7 +19,7 @@ const LargeModalTemplate: React.FC<LargeModalTemplateProps> = ({
 }) => (
   <Container>
     <HeaderContainer>
-      <Typography variant="button2">{title}</Typography>
+      <Title variant="button2">{title}</Title>
       <ButtonsContainer>{topButtons}</ButtonsContainer>
     </HeaderContainer>
 
