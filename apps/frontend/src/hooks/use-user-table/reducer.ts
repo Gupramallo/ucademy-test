@@ -31,7 +31,14 @@ export const modalReducer = (
       return {
         isOpen: true,
         type: MODAL_TYPES.warning,
-        selectedUser: undefined,
+        selectedUser: action.user,
+      }
+
+    case MODAL_ACTIONS.modifyUser:
+      return {
+        isOpen: true,
+        type: state.type,
+        selectedUser: action.user,
       }
 
     case MODAL_ACTIONS.closeModal:

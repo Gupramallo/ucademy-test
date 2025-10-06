@@ -1,7 +1,6 @@
 import type { UserFormData } from '@/components/organisms/modals/types'
 import { getEditUserMutation } from '@/shared/mutations/get-edit-user-mutation'
 import { useModalProvider } from '@/shared/providers/modal-provider/context'
-import type { User } from '@/shared/types'
 import { useQueryClient, useMutation } from '@tanstack/react-query'
 import { useForm } from 'react-hook-form'
 
@@ -49,7 +48,7 @@ export const useEditUserForm = () => {
     }
   }
 
-  const handleCancel = () => openProfileModal(selectedUser as User)
+  const handleCancel = () => openProfileModal(selectedUser)
 
   return {
     closeModal,

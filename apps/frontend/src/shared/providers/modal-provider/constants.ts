@@ -6,6 +6,7 @@ export const MODAL_CONTEXT_DEFAULT_VALUES = {
   openEditModal: () => {},
   openCreateModal: () => {},
   openWarningModal: () => {},
+  modifySelectedUser: () => {},
   closeModal: () => {},
   selectedUser: undefined,
   modalType: MODAL_TYPES.profile,

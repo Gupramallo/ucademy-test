@@ -3,10 +3,11 @@ import type { ModalType } from '@/hooks/use-user-table/types'
 import type { User } from '@/shared/types'
 
 export type ModalContextType = {
-  openProfileModal: (user: User) => void
-  openEditModal: (user: User) => void
+  openProfileModal: (user?: User) => void
+  openEditModal: (user?: User) => void
   openCreateModal: () => void
-  openWarningModal: () => void
+  openWarningModal: (user?: User) => void
+  modifySelectedUser: (user?: User) => void
   closeModal: () => void
   selectedUser?: User
   modalType: ModalType

@@ -6,15 +6,19 @@ import { modalReducer } from './reducer'
 export const useUserTable = () => {
   const [modalState, dispatch] = useReducer(modalReducer, INITIAL_MODAL_STATE)
 
-  const openProfileModal = (user: User) =>
+  const openProfileModal = (user?: User) =>
     dispatch({ type: MODAL_ACTIONS.openProfile, user })
 
-  const openEditModal = (user: User) =>
+  const openEditModal = (user?: User) =>
     dispatch({ type: MODAL_ACTIONS.openEdit, user })
 
   const openCreateModal = () => dispatch({ type: MODAL_ACTIONS.openCreate })
 
-  const openWarningModal = () => dispatch({ type: MODAL_ACTIONS.openWarning })
+  const openWarningModal = (user?: User) =>
+    dispatch({ type: MODAL_ACTIONS.openWarning, user })
+
+  const modifySelectedUser = (user?: User) =>
+    dispatch({ type: MODAL_ACTIONS.modifyUser, user })
 
   const closeModal = () => dispatch({ type: MODAL_ACTIONS.closeModal })
 
@@ -30,5 +34,6 @@ export const useUserTable = () => {
     modalType: modalState.type,
     isOpen: modalState.isOpen,
     Modal,
+    modifySelectedUser,
   }
 }
