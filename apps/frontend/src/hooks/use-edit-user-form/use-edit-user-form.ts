@@ -1,5 +1,5 @@
 import type { UserFormData } from '@/components/organisms/modals/types'
-import { getCreateUserMutation } from '@/shared/mutations/get-create-user-mutation'
+import { getCreateUserMutation } from '@/shared/mutations/get-edit-user-mutation'
 import { useModalProvider } from '@/shared/providers/modal-provider/context'
 import type { User } from '@/shared/types'
 import { useQueryClient, useMutation } from '@tanstack/react-query'
