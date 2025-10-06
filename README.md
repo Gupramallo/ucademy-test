@@ -1,31 +1,109 @@
-# Prueba técnica
+# Sistema de Gestión de Alumnos - Ucademy
 
-## Contexto y requerimientos:
+## Descripción
 
-Estamos desarrollando software para academias. Para estas la gestión de usuarios es primordial.
-Las listas de usuarios son grandes y contienen muchísimos datos sobre el usuario,
-por lo que deben ser muy performantes. En la prueba técnica deberás implementar la interfaz proporcionada y
-usar los datos del JSON como base de datos, este JSON esta situado en la raíz del repositorio (DB.json)
+Sistema web completo para la gestión de alumnos en academias educativas. La aplicación permite visualizar, crear, editar y gestionar el estado de los usuarios de manera eficiente y escalable.
 
-Proporcionamos en este repositorio un boilerplate con un stack similar al utilizado en Ucademy, NestJS para el backend y React para
-el frontend.
+## Requisitos previos
 
-`git clone git@github.com:UcademyTech/tech-assessment.git`
+- **Node.js** v18 o superior
+- **npm** v8 o superior
+- **MongoDB** v6 o superior
 
-`npm install`
+## Instalación
 
-`npm run start:backend`
+1. **Clonar el repositorio**
 
-`npm run start:fronted`
+   ```bash
+   git clone git@github.com:UcademyTech/tech-assessment.git
+   cd ucademy-test
+   ```
 
-## Enlaces:
+2. **Instalar dependencias**
 
-[Interfaz de usuario](https://www.figma.com/file/r1zwsMJU7IAsBJVuFLZHPK/Technical-Assessment?type=design&node-id=0%3A1&mode=design&t=tubwoMUyG8Lc4z9F-1)
+   ```bash
+   npm install
+   ```
 
-- El uso de Styled components será valorado positivamente.
+3. **Configurar MongoDB**
+   ```bash
+   # Crear directorio para la base de datos (si no existe)
+   mkdir -p apps/backend/database
+   ```
 
-PD: El objetivo de la prueba es simplemente valorar las desiciones que toma el candidato a la hora de realizar la implementación. Hay muchas soluciones válidas a lo que aquí se plantea.
+## Ejecución del proyecto
 
-## Entrega:
+### Opción 1: Con Tilt (Recomendado)
 
-Una vez finalizada la prueba se deberá entregar en un archivo comprimido (zip, tar.gz, etc) con el nombre del candidato.
+Si tienes [Tilt](https://tilt.dev/) instalado, puedes levantar todo el stack con un solo comando:
+
+```bash
+tilt up
+```
+
+Esto iniciará automáticamente MongoDB, el backend y el frontend. Puedes monitorear el estado de todos los servicios en la interfaz web de Tilt en [http://localhost:10350](http://localhost:10350).
+
+**Instalación de Tilt:**
+
+- **macOS**: `brew install tilt-dev/tap/tilt`
+- **Linux/Windows**: Ver [documentación oficial](https://docs.tilt.dev/install.html)
+
+### Opción 2: Desarrollo manual
+
+1. **Iniciar MongoDB**
+
+   ```bash
+   npm run start:mongo
+   ```
+
+2. **Iniciar el backend** (en una nueva terminal)
+
+   ```bash
+   npm run start:backend
+   ```
+
+3. **Iniciar el frontend** (en otra terminal)
+   ```bash
+   npm run start:frontend
+   ```
+
+### URLs de la aplicación
+
+- **Frontend**: [http://localhost:4200](http://localhost:4200)
+- **Backend API**: [http://localhost:3000](http://localhost:3000)
+- **MongoDB**: puerto 27018
+
+## Scripts disponibles
+
+```bash
+npm run start:frontend     # Inicia el frontend
+npm run start:backend      # Inicia el backend
+npm run start:mongo        # Inicia MongoDB
+```
+
+## Funcionalidades implementadas
+
+### Gestión de usuarios
+
+- **Lista de alumnos**: Vista tabular con paginación
+- **Perfil de alumno**: Modal con información detallada
+- **Crear alumno**: Formulario completo con validaciones
+- **Editar alumno**: Modificación de datos existentes
+- **Activar/desactivar**: Control del estado de la cuenta
+
+## Arquitectura de componentes
+
+El proyecto sigue el patrón **Atomic Design**:
+
+- **Atoms**: Botones, campos de entrada, chips de estado
+- **Molecules**: Cabeceras, campos de formulario, paginación
+- **Organisms**: Tablas, formularios, modales
+- **Templates**: Layouts base
+- **Pages**: Páginas completas
+
+## Estado de la aplicación
+
+- **Cliente**: TanStack Query para cache y sincronización
+- **Formularios**: React Hook Form con validaciones
+- **Modales**: Context API para gestión de estado
+- **Temas**: Material-UI theming system
