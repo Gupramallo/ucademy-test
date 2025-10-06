@@ -19,7 +19,7 @@ const LargeModalTemplate: React.FC<LargeModalTemplateProps> = ({
 }) => (
   <Container>
     <HeaderContainer>
-      <Typography>{title}</Typography>
+      <Typography variant="button2">{title}</Typography>
       <ButtonsContainer>{topButtons}</ButtonsContainer>
     </HeaderContainer>
 

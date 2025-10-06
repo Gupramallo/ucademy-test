@@ -14,8 +14,13 @@ const SmallModalTemplate: React.FC<SmallModalTemplateProps> = ({
   <Container>
     <ContentContainer>{children}</ContentContainer>
     <BottomContainer>
-      <SecondaryButton label="Cancelar" onClick={onClose} />
-      <MainButton label={mainButtonLabel} color="error" onClick={onClick} />
+      <SecondaryButton variant="button" label="Cancelar" onClick={onClose} />
+      <MainButton
+        variant="button"
+        label={mainButtonLabel}
+        color="error"
+        onClick={onClick}
+      />
     </BottomContainer>
   </Container>
 )

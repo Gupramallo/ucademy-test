@@ -1,12 +1,14 @@
 import React from 'react'
 import { Button } from './styles'
 import type { ButtonProps } from '../types'
+import { Typography } from '@mui/material'
 
 const MainButton: React.FC<ButtonProps> = ({
   label,
   onClick,
   disabled,
   color = 'primary',
+  variant = 'button2',
 }) => (
   <Button
     disabled={disabled}
@@ -15,7 +17,7 @@ const MainButton: React.FC<ButtonProps> = ({
     variant="contained"
     color={color}
   >
-    {label}
+    <Typography variant={variant}>{label}</Typography>
   </Button>
 )
 

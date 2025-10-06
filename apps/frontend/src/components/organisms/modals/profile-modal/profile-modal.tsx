@@ -1,4 +1,4 @@
-import { FormControlLabel, FormGroup, Switch } from '@mui/material'
+import { FormControlLabel, FormGroup, Switch, Typography } from '@mui/material'
 import React from 'react'
 import ImagePlaceholder from '@/components/atoms/image-placeholder'
 import { LargeModalTemplate } from '../modal-templates'
@@ -32,7 +32,11 @@ const ProfileModal: React.FC = () => {
                 onChange={onChange}
               />
             }
-            label="Cuenta activa"
+            label={
+              <Typography variant="body2">
+                {selectedUser?.isActive ? 'Cuenta activa' : 'Cuenta inactiva'}
+              </Typography>
+            }
           />
         </FormGroup>
       }
@@ -46,7 +50,7 @@ const ProfileModal: React.FC = () => {
             text={`${selectedUser?.name} ${selectedUser?.lastName}`}
           />
           <ProfileInfoLabel
-            title="Nombres de usuario"
+            title="Nombre de usuario"
             text={selectedUser?.name}
           />
           <ProfileInfoLabel

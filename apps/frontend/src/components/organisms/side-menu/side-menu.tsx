@@ -21,7 +21,7 @@ const SideMenu: React.FC = () => (
     <IconsContainer>
       <MenuButton>
         <SchoolIcon />
-        <Typography>Alumnos</Typography>
+        <Typography variant="body1">Alumnos</Typography>
       </MenuButton>
     </IconsContainer>
   </MainContainer>

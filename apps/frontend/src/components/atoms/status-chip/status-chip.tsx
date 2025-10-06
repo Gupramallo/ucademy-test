@@ -5,7 +5,7 @@ import { Typography } from '@mui/material'
 
 const StatusChip: React.FC<StatusChipProps> = ({ isActive }) => (
   <Container isActive={isActive}>
-    <Typography variant="body2">{isActive ? 'Activo' : 'Incativo'}</Typography>
+    <Typography variant="body3">{isActive ? 'Activo' : 'Inactivo'}</Typography>
   </Container>
 )
 

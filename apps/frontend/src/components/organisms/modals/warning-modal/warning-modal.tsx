@@ -24,8 +24,10 @@ const WarningModal: React.FC = () => {
         </IconContainer>
 
         <TextContainer>
-          <Typography>¿Seguro que quieres desactivar esta cuenta?</Typography>
-          <Typography>
+          <Typography variant="body1">
+            ¿Seguro que quieres desactivar esta cuenta?
+          </Typography>
+          <Typography variant="body1">
             El usuario dejará de tener acceso a la plataforma.
           </Typography>
         </TextContainer>

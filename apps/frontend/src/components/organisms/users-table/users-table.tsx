@@ -5,6 +5,7 @@ import {
   TableCell,
   TableHead,
   TableRow,
+  Typography,
 } from '@mui/material'
 import {
   TableContainer,
@@ -36,10 +37,18 @@ const UsersTable: React.FC<UserTableProps> = ({
           <TableHead>
             <TableHeaderRow>
               <EmptyCell />
-              <NameCell>Nombres y apellidos</NameCell>
-              <UserCell>Usuario</UserCell>
-              <EmailCell>Email</EmailCell>
-              <MobileCell>Movil</MobileCell>
+              <NameCell>
+                <Typography variant="button2">Nombres y apellidos</Typography>
+              </NameCell>
+              <UserCell>
+                <Typography variant="button2">Usuario</Typography>
+              </UserCell>
+              <EmailCell>
+                <Typography variant="button2">Email</Typography>
+              </EmailCell>
+              <MobileCell>
+                <Typography variant="button2">Movil</Typography>
+              </MobileCell>
             </TableHeaderRow>
           </TableHead>
           <TableBody>
@@ -52,10 +61,18 @@ const UsersTable: React.FC<UserTableProps> = ({
                 <TableCell>
                   <StatusChip isActive={user.isActive} />
                 </TableCell>
-                <TableCell>{`${user.name} ${user.lastName}`}</TableCell>
-                <TableCell>{user.name}</TableCell>
-                <TableCell>{user.email}</TableCell>
-                <TableCell>{user.phone}</TableCell>
+                <TableCell>
+                  <Typography variant="body2">{`${user.name} ${user.lastName}`}</Typography>
+                </TableCell>
+                <TableCell>
+                  <Typography variant="body2">{user.name}</Typography>
+                </TableCell>
+                <TableCell>
+                  <Typography variant="body2">{user.email}</Typography>
+                </TableCell>
+                <TableCell>
+                  <Typography variant="body2">{user.phone}</Typography>
+                </TableCell>
               </TableRow>
             ))}
           </TableBody>

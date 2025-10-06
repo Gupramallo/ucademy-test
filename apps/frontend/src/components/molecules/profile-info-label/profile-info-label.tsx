@@ -11,8 +11,8 @@ const ProfileInfoLabel: React.FC<ProfileInfoLabelProps> = ({
   <Container>
     {icon ?? <EmptyIcon />}
     <InfoContainer>
-      <Typography variant="body2">{title}</Typography>
-      <Typography>{text ?? '-'}</Typography>
+      <Typography variant="subtitle1">{title}</Typography>
+      <Typography variant="body2">{text ?? '-'}</Typography>
     </InfoContainer>
   </Container>
 )

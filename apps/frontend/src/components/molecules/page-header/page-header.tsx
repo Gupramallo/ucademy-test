@@ -6,7 +6,7 @@ import { Container } from './styles'
 
 const PageHeader: React.FC<PageHeaderProps> = ({ onClick }) => (
   <Container>
-    <Typography variant="h4">Alumnos</Typography>
+    <Typography variant="h3">Alumnos</Typography>
     <MainButton label="Nuevo Alumno" onClick={onClick} />
   </Container>
 )

@@ -1,17 +1,10 @@
-import { createTheme } from '@mui/material/styles'
+import { createTheme } from '@mui/material'
+import { palette } from './palette'
+import { typography } from './typography'
 
 const theme = createTheme({
-  palette: {
-    primary: {
-      main: '#0ABB87',
-    },
-    background: {
-      default: '#f9fbff',
-    },
-    grey: {
-      50: '#EEF0F5',
-    },
-  },
+  palette,
+  typography,
 })
 
 export default theme
